@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { ACTION_TYPES_IS_SHOW, ACTION_TYPES_MINUS, ACTION_TYPES_PLUS } from "./store/actionTypes";
 
 function ShowDiv() {
   const { isShow } = useSelector((state) => state.show);
@@ -11,7 +12,7 @@ function ShowDiv() {
   return (
     <>
       {/* <button onClick={() => setIsShow(false)}>ซ่อน</button> */}
-      <button onClick={() => dispatch({ type: "isShow" })}>ซ่อน</button>
+      <button onClick={() => dispatch({ type: ACTION_TYPES_IS_SHOW })}>ซ่อน</button>
       {isShow && <div style={{ width: "700px", height: "700px", backgroundColor: "red" }}></div>}
     </>
   );
@@ -25,11 +26,11 @@ function App() {
   console.log(useSelector((state) => state));
 
   const plusNumber = () => {
-    dispatch({ type: "plus" });
+    dispatch({ type: ACTION_TYPES_PLUS });
   };
 
   const minusNumber = () => {
-    dispatch({ type: "minus" });
+    dispatch({ type: ACTION_TYPES_MINUS });
   };
 
   const submitValue = () => {
